@@ -20,6 +20,10 @@ set(${PROJECT_NAME}_VERSION "${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # Dependencies
+find_path(pandora_cmake_path "PandoraCMakeSettings.cmake" "${CMAKE_CURRENT_LIST_DIR}/cmakemodules")
+if (pandora_cmake_path)
+    list(APPEND CMAKE_MODULE_PATH ${pandora_cmake_path})
+endif()
 include(PandoraCMakeSettings)
 
 # Prefer local include directory to any paths to installed header files
